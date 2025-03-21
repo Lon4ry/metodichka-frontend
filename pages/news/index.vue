@@ -1,44 +1,46 @@
 <script setup lang="ts">
-type News = {
-  id: number;
-  img: string;
-  name: string;
-  description: string;
-  author: string;
-  createdAt: string;
-};
-const news: News[] = ref([
-  {
-    id: 1,
-    img: "http://metodichka-prog.ru/wp-content/uploads/2025/03/swqwdswd.png",
-    title: "Курсовые защиты — Успех!",
-    description:
-      " Поздравляем группы СИП 423, СИП 433 и СИП 443 с успешной защитой",
-    author: "Павлов А.В",
-    createdAt: "21.03.2025",
-  },
-  {
-    id: 2,
-    img: "http://metodichka-prog.ru/wp-content/uploads/2025/02/L_height.webp",
-    title: "Для групп СИП 423, СИП 433, СИП 443",
-    description:
-      " Сдача 1 главы курсовой работы на проверку 21 февраля. Форматирование и разделы в соответствии с требованиями",
-    author: "Павлов А.В",
-    createdAt: "21.03.2025",
-  },
-]);
+import HorizontalPhotoCard from "~/components/horizontal-photo-card.vue";
+import type { News } from "~/shared/types/news";
+import { news_table } from "~/shared/db/dbImposter";
+
+const newsRef: MaybeRef<News[]> = ref(news_table);
 </script>
 
 <template>
-  <UContainer>
-    <HorizontalPhotoCard v-for="newsRecord in news">
-      <template #img>
-        <img :src="newsRecord.img" alt="" class="h-full w-full" />
-      </template>
-      <template #header>
-        {{ newsRecord.title }}
-      </template>
-      {{ newsRecord.description }}
-    </HorizontalPhotoCard>
+  <UContainer class="">
+    <div class="space-y-4 py-4">
+      <HorizontalPhotoCard v-for="newsRecord in newsRef">
+        <template #img>
+          <img :src="newsRecord.img" alt="" class="h-full w-full" />
+        </template>
+        <template #header>
+          <h3 class="text-2xl font-bold md:text-3xl">{{ newsRecord.title }}</h3>
+        </template>
+        {{ newsRecord.description }}
+        <template #footer>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-8">
+              <p class="text-gray-500">
+                Автор:
+                <span class="text-blue-500">{{ newsRecord.author }}</span>
+              </p>
+              <p class="text-gray-500">
+                Дата публикации:
+                <span class="text-blue-500">{{ newsRecord.createdAt }}</span>
+              </p>
+            </div>
+
+            <UButton
+              :to="`/news/${newsRecord.id}`"
+              variant="outline"
+              color="neutral"
+              class="text-xl"
+            >
+              Подробнее
+            </UButton>
+          </div>
+        </template>
+      </HorizontalPhotoCard>
+    </div>
   </UContainer>
 </template>
