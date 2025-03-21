@@ -10,7 +10,7 @@ type News = {
 const news: News[] = ref([
   {
     id: 1,
-    img: "https://metodichka-prog.ru/wp-content/uploads/2025/03/swqwdswd.png",
+    img: "http://metodichka-prog.ru/wp-content/uploads/2025/03/swqwdswd.png",
     title: "Курсовые защиты — Успех!",
     description:
       " Поздравляем группы СИП 423, СИП 433 и СИП 443 с успешной защитой",
@@ -19,7 +19,7 @@ const news: News[] = ref([
   },
   {
     id: 2,
-    img: "https://metodichka-prog.ru/wp-content/uploads/2025/02/L_height.webp",
+    img: "http://metodichka-prog.ru/wp-content/uploads/2025/02/L_height.webp",
     title: "Для групп СИП 423, СИП 433, СИП 443",
     description:
       " Сдача 1 главы курсовой работы на проверку 21 февраля. Форматирование и разделы в соответствии с требованиями",
@@ -31,12 +31,14 @@ const news: News[] = ref([
 
 <template>
   <UContainer>
-    <NewsCard
-      v-for="item in news"
-      :title="item.title"
-      :img="item.img"
-      :description="item.description"
-      :author="item.author"
-    />
+    <HorizontalPhotoCard v-for="newsRecord in news">
+      <template #img>
+        <img :src="newsRecord.img" alt="" class="h-full w-full" />
+      </template>
+      <template #header>
+        {{ newsRecord.title }}
+      </template>
+      {{ newsRecord.description }}
+    </HorizontalPhotoCard>
   </UContainer>
 </template>
