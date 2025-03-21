@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <Body class="font-museo light text-[#000]">
+  <Body class="font-museo light tracking-wider text-[#000]">
     <UApp>
       <slot />
     </UApp>
