@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main class="container mx-auto p-5">
+  <main class="container mx-auto my-10">
     <h1 class="my-10 text-6xl font-bold">О нас</h1>
     <div class="flex flex-col gap-10">
       <h2 class="text-3xl font-bold">
