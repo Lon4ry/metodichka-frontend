@@ -1,4 +1,4 @@
-export type News = {
+type News = {
   id: number;
   img: string;
   title: string;
