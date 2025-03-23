@@ -32,7 +32,7 @@ const links = [
         <UIcon name="i-lucide-align-justify" class="size-5" />
       </UButton>
       <template #body>
-        <div class="flex flex-col">
+        <div class="flex flex-col gap-2">
           <UButton
             :to="link.to"
             variant="link"
