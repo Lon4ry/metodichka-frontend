@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <main class="container mx-auto my-10">
     <h1 class="my-10 text-6xl font-bold">О нас</h1>
