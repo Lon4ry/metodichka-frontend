@@ -16,4 +16,7 @@ export default defineNuxtConfig({
       subsets: ["cyrillic", "latin"],
     },
   },
+  runtimeConfig: {
+    public: { apiUrl: "" },
+  },
 });

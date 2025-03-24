@@ -10,13 +10,13 @@ const links = [
 
 <template>
   <nav
-    class="sticky top-0 flex flex-row justify-between gap-10 border-b border-b-blue-100 bg-white px-5 py-3 sm:justify-center sm:px-10"
+    class="sticky top-0 flex flex-row justify-between gap-10 border-b border-b-blue-100 bg-white px-4 py-3 md:justify-center lg:px-10"
   >
     <NuxtLink to="/" class="flex items-center justify-center gap-3">
-      <img src="/icon.png" alt="icon" class="size-10" />
+      <img src="/icon.png" alt="icon" class="size-5" />
       <span class="text-lg font-bold">metodichka</span>
     </NuxtLink>
-    <div class="hidden flex-1 flex-row justify-center gap-2 sm:flex">
+    <div class="hidden flex-1 flex-row justify-center gap-1 md:flex">
       <UButton
         :to="link.to"
         variant="link"
@@ -28,8 +28,8 @@ const links = [
       </UButton>
     </div>
     <UDrawer direction="right">
-      <UButton variant="ghost" color="neutral">
-        <UIcon name="i-lucide-align-justify" class="size-5 sm:hidden" />
+      <UButton variant="ghost" color="neutral" class="md:hidden">
+        <UIcon name="i-lucide-align-justify" class="size-5" />
       </UButton>
       <template #body>
         <div class="flex flex-col gap-2">
