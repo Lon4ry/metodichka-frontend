@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto my-10">
+  <main class="container mx-auto my-10 px-5">
     <h1 class="my-10 text-6xl font-bold">О нас</h1>
     <div class="flex flex-col gap-10">
       <h2 class="text-3xl font-bold">

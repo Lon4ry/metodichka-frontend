@@ -12,10 +12,10 @@ const links = [
   <nav
     class="sticky top-0 flex flex-row justify-between gap-10 border-b border-b-blue-100 bg-white px-5 py-3 sm:justify-center sm:px-10"
   >
-    <div class="flex items-center justify-center gap-3">
+    <NuxtLink to="/" class="flex items-center justify-center gap-3">
       <img src="/icon.png" alt="icon" class="size-10" />
       <span class="text-lg font-bold">metodichka</span>
-    </div>
+    </NuxtLink>
     <div class="hidden flex-1 flex-row justify-center gap-2 sm:flex">
       <UButton
         :to="link.to"
@@ -29,7 +29,7 @@ const links = [
     </div>
     <UDrawer direction="right">
       <UButton variant="ghost" color="neutral">
-        <UIcon name="i-lucide-align-justify" class="size-5" />
+        <UIcon name="i-lucide-align-justify" class="size-5 sm:hidden" />
       </UButton>
       <template #body>
         <div class="flex flex-col gap-2">
