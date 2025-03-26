@@ -5,7 +5,11 @@ const news = mockNews;
 <template>
   <UContainer>
     <div class="space-y-4 py-4">
-      <h2 class=" text-xl min-[320px]:text-2xl text-center min-[450px]:text-4xl md:text-5xl lg:text-left lg:text-6xl my-8 font-extrabold ">Новости / Объявления</h2>
+      <h2
+        class="my-8 text-center text-xl font-extrabold min-[320px]:text-2xl min-[450px]:text-4xl md:text-5xl lg:text-left lg:text-6xl"
+      >
+        Новости / Объявления
+      </h2>
       <HorizontalPhotoCard v-for="n in news">
         <template #img>
           <img :src="n.img" alt="" class="size-full" />
