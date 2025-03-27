@@ -2,5 +2,5 @@
 @import "@nuxt/ui";
 
 @theme static {
-    --font-museo: Museo Sans;
+  --font-museo: Museo Sans;
 }
