@@ -16,4 +16,7 @@ export default defineNuxtConfig({
       subsets: ["cyrillic", "latin"],
     },
   },
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
+  },
 });
