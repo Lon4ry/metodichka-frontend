@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const route = useRoute();
 
-const newsId: number = Number(route.params.news);
+const newsId: number = Number(route.params.id);
+// TODO
 const currentNews: News = mockNews.find((item) => item.id === newsId) || {
   id: 0,
   title: "Не найдено",
