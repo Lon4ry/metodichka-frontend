@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const links = [
+ const links = [
   { title: "Новости", to: "/" },
   { title: "Методичка", to: "/help" },
   { title: "О нас", to: "/about" },

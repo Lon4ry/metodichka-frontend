@@ -5,6 +5,7 @@
     <UApp>
       <Header />
       <slot />
+      <Footer />
     </UApp>
   </Body>
 </template>
