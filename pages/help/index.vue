@@ -4,7 +4,7 @@ import type { TreeItem } from "#ui/components/Tree.vue";
 const config = useRuntimeConfig();
 const router = useRouter();
 const route = useRoute();
-
+console.log(config)
 const { data } = await useFetch<Category[]>(
   `${config.public.apiUrl}/categories`,
 );

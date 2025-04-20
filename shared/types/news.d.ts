@@ -2,7 +2,7 @@ type News = {
   id: number;
   img: string;
   title: string;
-  description: string;
+  markdown: string;
   author: string;
   createdAt: string;
 };

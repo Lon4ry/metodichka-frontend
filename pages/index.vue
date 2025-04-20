@@ -1,5 +1,13 @@
 <script setup lang="ts">
-const news = mockNews;
+import { computed } from "vue";
+
+const config = useRuntimeConfig()
+console.log(config)
+const { data: news } = await useFetch<News[]>(
+    `${config.public.apiUrl}/news`,
+  )
+
+console.log(news)
 </script>
 
 <template>
@@ -17,7 +25,7 @@ const news = mockNews;
         <template #header>
           <h3 class="text-2xl font-bold md:text-3xl">{{ n.title }}</h3>
         </template>
-        <p class="line-clamp-5">{{ n.description }}</p>
+        <MDC class="reset-tw line-clamp-5 w-full md:w-3/4" :value="n.markdown ?? ''" />
         <template #footer>
           <div class="flex items-center justify-between gap-3">
             <div class="flex items-center space-x-8">

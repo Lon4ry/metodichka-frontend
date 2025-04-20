@@ -13,8 +13,8 @@
     class="sticky top-0 flex flex-row justify-between gap-10 border-b border-b-blue-100 bg-white px-4 py-3 md:justify-center lg:px-10"
   >
     <NuxtLink to="/" class="flex items-center justify-center gap-3">
-      <img src="/icon.png" alt="icon" class="size-5" />
-      <span class="text-lg font-bold">metodichka</span>
+      <img src="/icon.png" alt="icon" class="size-11" />
+      <span class="text-2xl font-bold">metodichka</span>
     </NuxtLink>
     <div class="hidden flex-1 flex-row justify-center gap-1 md:flex">
       <UButton
