@@ -4,25 +4,24 @@ import type { TreeItem } from "#ui/components/Tree.vue";
 const config = useRuntimeConfig();
 const router = useRouter();
 const route = useRoute();
-console.log(config)
-const { data } = await useFetch<Category[]>(
-  `${config.public.apiUrl}/categories`,
+const { data: pages } = await useFetch<Page[]>(
+  `${config.public.apiUrl}/pages`,
 );
 
 function buildTree(
-  categories: Category[],
-  parentId: number | null = null,
-): (Category & TreeItem)[] {
-  return categories
-    .filter((category) => category.parentCategoryID === parentId)
-    .map((category) => ({
-      ...category,
-      children: buildTree(categories, category.id),
+  pages: Page[],
+  parentId: string | null = null,
+): (Page & TreeItem)[] {
+  return pages
+    .filter((page) => page.parent === parentId)
+    .map((page) => ({
+      ...page,
+      children: buildTree(pages, page.id),
     }));
 }
 
 const formatted = computed(() =>
-  data?.value?.map((v) => ({
+  pages?.value?.map((v) => ({
     ...v,
     label: v.name,
     value: String(v.id),
@@ -47,14 +46,14 @@ const selected = computed({
 const struct = buildTree(formatted.value ?? []);
 
 // ГОВНОКОД
-function findSelected(categories: (Category & TreeItem)[]): boolean {
+function findSelected(categories: (Page & TreeItem)[]): boolean {
   const s = categories.find((v) => v.id === selected.value?.id);
   if (s) {
     s.defaultExpanded = true;
     return true;
   } else {
     const d = categories.map((v) =>
-      findSelected(v.children as (Category & TreeItem)[]),
+      findSelected(v.children as (Page & TreeItem)[]),
     );
     if (d.includes(true)) {
       categories[d.indexOf(true)].defaultExpanded = true;
@@ -68,7 +67,7 @@ findSelected(struct);
 const v = computed(() =>
   useFetch<Page>(`${config.public.apiUrl}/pages/${route.query.i ?? 0}`),
 );
-const markdown = computed(() => v.value.data.value?.markdown);
+const markdown = computed(() => pages.value?.find(p => p.id === route.query.i)?.content);
 const lastMarkdown = ref(markdown.value);
 watchEffect(() => {
   if (markdown.value) lastMarkdown.value = markdown.value;

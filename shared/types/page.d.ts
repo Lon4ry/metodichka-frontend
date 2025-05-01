@@ -1,9 +1,8 @@
 type Page = {
   id: string;
-  title: string;
-  markdown: string;
-  categoryID: string;
+  parent: string;
+  name: string;
+  content: string;
+  icon: string
   createdAt: string;
-  updatedAt: string;
-  deletedAt: string;
 };
