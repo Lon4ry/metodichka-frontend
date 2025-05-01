@@ -3,9 +3,11 @@
 <template>
   <Body class="font-museo light tracking-wider text-[#000]">
     <UApp>
-      <Header />
-      <slot />
-      <Footer />
+      <div class="flex min-h-screen flex-col">
+        <Header />
+        <main class="flex flex-1"><slot /></main>
+        <Footer />
+      </div>
     </UApp>
   </Body>
 </template>

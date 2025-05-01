@@ -1,13 +1,37 @@
-  // https://nuxt.com/docs/api/configuration/nuxt-config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxt/eslint", "@nuxt/fonts", "@nuxtjs/mdc", "@nuxt/icon"],
+  modules: [
+    "@nuxt/ui",
+    "@nuxt/eslint",
+    "@nuxt/fonts",
+    "@nuxtjs/mdc",
+    "@nuxt/icon",
+  ],
   css: ["~/assets/css/tailwind.css"],
   vite: {
     plugins: [tailwindcss()],
+  },
+  mdc: {
+    highlight: {
+      theme: "catppuccin-latte",
+      langs: [
+        "css",
+        "html",
+        "javascript",
+        "typescript",
+        "json",
+        "1c",
+        "1c-query",
+        "c#",
+        "python",
+        "bash",
+        "vue",
+      ],
+    },
   },
   fonts: {
     defaults: {
