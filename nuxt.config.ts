@@ -27,6 +27,7 @@ export default defineNuxtConfig({
         "1c",
         "1c-query",
         "c#",
+        "csharp",
         "python",
         "bash",
         "vue",
