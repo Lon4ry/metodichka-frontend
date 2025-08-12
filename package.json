@@ -13,7 +13,7 @@
     "@nuxt/eslint": "^1.2.0",
     "@nuxt/fonts": "0.11.0",
     "@nuxt/ui": "3.0.0",
-    "@nuxtjs/mdc": "^0.16.1",
+    "@nuxtjs/mdc": "^0.17.2",
     "@tailwindcss/vite": "^4.0.17",
     "nuxt": "^3.16.1",
     "tailwindcss": "^4.0.17",
